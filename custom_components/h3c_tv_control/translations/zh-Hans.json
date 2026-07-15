@@ -1,0 +1,67 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "H3C 电视上网控制",
+        "description": "输入 H3C S5550 交换机连接信息",
+        "data": {
+          "host": "交换机 IP 地址",
+          "username": "用户名",
+          "password": "密码",
+          "port": "Telnet 端口",
+          "acl_id": "ACL 编号"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "无法连接交换机，请检查 IP、端口和网络",
+      "invalid_auth": "认证失败，请检查用户名和密码",
+      "unknown": "发生未知错误"
+    },
+    "abort": {
+      "already_configured": "该交换机已配置"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "电视实体绑定",
+        "description": "选择用于判断每台电视开关机状态的媒体播放器实体。未绑定的电视仍可控制 ACL，但不会累计使用时间。",
+        "data": {
+          "master_bedroom_media_player": "主卧电视",
+          "living_room_media_player": "客厅电视",
+          "elder_room_media_player": "老人房电视",
+          "study_room_media_player": "书房电视"
+        }
+      }
+    },
+    "error": {
+      "duplicate_tv_entities": "每台电视必须绑定不同的媒体播放器实体"
+    }
+  },
+  "exceptions": {
+    "child_policy_denied": {
+      "message": "儿童控制拒绝开启网络：{reason}"
+    },
+    "communication_error": {
+      "message": "与 H3C 交换机通信失败：{error}"
+    }
+  },
+  "entity": {
+    "switch": {
+      "internet": {
+        "name": "上网开关"
+      }
+    },
+    "select": {
+      "allowed_window": {
+        "name": "允许时段",
+        "state": {
+          "all_day": "全天",
+          "daytime": "白天（08:00–20:00）",
+          "nighttime": "晚上（20:00–08:00）"
+        }
+      }
+    }
+  }
+}

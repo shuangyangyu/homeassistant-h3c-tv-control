@@ -1,0 +1,11 @@
+{
+  "domain": "h3c_tv_control",
+  "name": "H3C TV Control",
+  "codeowners": ["@shuangyangyu"],
+  "config_flow": true,
+  "documentation": "https://github.com/shuangyangyu/h3c_s5550_hass",
+  "integration_type": "hub",
+  "iot_class": "local_polling",
+  "requirements": [],
+  "version": "0.1.0"
+}

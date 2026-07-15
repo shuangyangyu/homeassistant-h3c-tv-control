@@ -1,0 +1,67 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "H3C TV Internet Control",
+        "description": "Enter H3C S5550 switch connection details",
+        "data": {
+          "host": "Switch IP address",
+          "username": "Username",
+          "password": "Password",
+          "port": "Telnet port",
+          "acl_id": "ACL ID"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot connect to switch. Check IP, port, and network.",
+      "invalid_auth": "Authentication failed. Check username and password.",
+      "unknown": "An unknown error occurred"
+    },
+    "abort": {
+      "already_configured": "This switch is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "TV entity mapping",
+        "description": "Select the Home Assistant media player used to detect whether each TV is on. Unmapped TVs keep ACL control but do not accumulate usage.",
+        "data": {
+          "master_bedroom_media_player": "Master bedroom TV",
+          "living_room_media_player": "Living room TV",
+          "elder_room_media_player": "Elder room TV",
+          "study_room_media_player": "Study room TV"
+        }
+      }
+    },
+    "error": {
+      "duplicate_tv_entities": "Each TV must use a different media player entity"
+    }
+  },
+  "exceptions": {
+    "child_policy_denied": {
+      "message": "Child policy denied internet access: {reason}"
+    },
+    "communication_error": {
+      "message": "Communication with the H3C switch failed: {error}"
+    }
+  },
+  "entity": {
+    "switch": {
+      "internet": {
+        "name": "Internet"
+      }
+    },
+    "select": {
+      "allowed_window": {
+        "name": "Allowed window",
+        "state": {
+          "all_day": "All day",
+          "daytime": "Daytime (08:00–20:00)",
+          "nighttime": "Nighttime (20:00–08:00)"
+        }
+      }
+    }
+  }
+}

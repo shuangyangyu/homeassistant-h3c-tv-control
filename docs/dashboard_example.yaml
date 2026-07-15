@@ -1,0 +1,82 @@
+# H3C 电视上网控制仪表盘示例
+# 将 entity_id 替换为你在「开发者工具 → 状态」中看到的实际 ID
+
+type: vertical-stack
+cards:
+  - type: markdown
+    content: |
+      ## 电视上网控制
+      通过 H3C S5550 ACL 控制 Sony 电视是否允许上网。
+      开启儿童控制后，受单次时长、每日总时长和允许时间段限制。
+
+  - type: entities
+    title: 客厅电视
+    state_color: true
+    entities:
+      - entity: switch.living_room_internet
+      - entity: switch.living_room_child
+        name: 儿童控制
+      - entity: number.living_room_session_minutes
+        name: 单次允许（分钟）
+      - entity: number.living_room_daily_minutes
+        name: 每日允许（分钟）
+      - entity: number.living_room_cooldown_minutes
+        name: 冷却时间（分钟）
+      - entity: select.living_room_allowed_window
+        name: 允许时段
+      - entity: sensor.living_room_daily_used
+        name: 今日已用（分钟）
+      - entity: sensor.living_room_session_remaining
+        name: 本次剩余（分钟）
+      - entity: sensor.living_room_cooldown_remaining
+        name: 冷却剩余（分钟）
+      - entity: button.living_room_daily_reset
+        name: 今日初始化
+
+  - type: entities
+    title: 主卧电视
+    state_color: true
+    entities:
+      - entity: switch.master_bedroom_internet
+      - entity: switch.master_bedroom_child
+        name: 儿童控制
+      - entity: number.master_bedroom_session_minutes
+      - entity: number.master_bedroom_daily_minutes
+      - entity: number.master_bedroom_cooldown_minutes
+      - entity: select.master_bedroom_allowed_window
+      - entity: sensor.master_bedroom_daily_used
+      - entity: sensor.master_bedroom_session_remaining
+      - entity: sensor.master_bedroom_cooldown_remaining
+      - entity: button.master_bedroom_daily_reset
+
+  - type: entities
+    title: 老人房电视
+    state_color: true
+    entities:
+      - entity: switch.elder_room_internet
+      - entity: switch.elder_room_child
+        name: 儿童控制
+      - entity: number.elder_room_session_minutes
+      - entity: number.elder_room_daily_minutes
+      - entity: number.elder_room_cooldown_minutes
+      - entity: select.elder_room_allowed_window
+      - entity: sensor.elder_room_daily_used
+      - entity: sensor.elder_room_session_remaining
+      - entity: sensor.elder_room_cooldown_remaining
+      - entity: button.elder_room_daily_reset
+
+  - type: entities
+    title: 书房电视
+    state_color: true
+    entities:
+      - entity: switch.study_room_internet
+      - entity: switch.study_room_child
+        name: 儿童控制
+      - entity: number.study_room_session_minutes
+      - entity: number.study_room_daily_minutes
+      - entity: number.study_room_cooldown_minutes
+      - entity: select.study_room_allowed_window
+      - entity: sensor.study_room_daily_used
+      - entity: sensor.study_room_session_remaining
+      - entity: sensor.study_room_cooldown_remaining
+      - entity: button.study_room_daily_reset
