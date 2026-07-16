@@ -44,7 +44,7 @@ ACTIVE_TV_STATES = {
     MediaPlayerState.PAUSED,
     MediaPlayerState.BUFFERING,
 }
-INACTIVE_TV_STATES = {MediaPlayerState.OFF, MediaPlayerState.STANDBY}
+INACTIVE_TV_STATES = {MediaPlayerState.OFF}
 TV_UNAVAILABLE_GRACE = timedelta(minutes=2)
 
 
